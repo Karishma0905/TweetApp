@@ -1,0 +1,431 @@
+2022-08-02 11:10:24.209  INFO 16844 --- [kafka-coordinator-heartbeat-thread | tweet_group] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 11:10:24.453  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:631) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:516) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:356) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:316) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) ~[mongodb-driver-core-4.1.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method) ~[na:na]
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:648) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:513) ~[mongodb-driver-core-4.1.1.jar:na]
+	... 5 common frames omitted
+
+2022-08-02 11:10:24.508  INFO 16844 --- [kafka-coordinator-heartbeat-thread | tweet_group] o.a.kafka.clients.FetchSessionHandler    : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Error sending fetch request (sessionId=1316756320, epoch=5799) to node 0:
+
+org.apache.kafka.common.errors.DisconnectException: null
+
+2022-08-02 11:10:24.576  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:6, serverValue:811}] to localhost:27017
+2022-08-02 11:10:24.576  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=26096600}
+2022-08-02 11:10:24.641  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 11:10:24.657  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Attempt to heartbeat with Generation{generationId=5, memberId='consumer-tweet_group-1-f204052b-5102-40cf-912c-8876f87ba360', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2022-08-02 11:10:24.658  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Giving away all assigned partitions as lost since generation has been reset,indicating that consumer is no longer part of the group
+2022-08-02 11:10:24.659  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Lost previously assigned partitions TweetMessage-0
+2022-08-02 11:10:24.661  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions lost: [TweetMessage-0]
+2022-08-02 11:10:24.663  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions revoked: [TweetMessage-0]
+2022-08-02 11:10:24.667  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 11:10:24.689  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Join group failed with org.apache.kafka.common.errors.MemberIdRequiredException: The group member needs to have a valid member id before actually entering a consumer group.
+2022-08-02 11:10:24.689  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 11:10:24.702  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Finished assignment for group at generation 7: {consumer-tweet_group-1-1e304d6f-7b89-4b87-a3d8-14e2e7f72caa=Assignment(partitions=[TweetMessage-0])}
+2022-08-02 11:10:24.712  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Successfully joined group with generation 7
+2022-08-02 11:10:24.713  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Notifying assignor about the new Assignment(partitions=[TweetMessage-0])
+2022-08-02 11:10:24.714  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Adding newly assigned partitions: TweetMessage-0
+2022-08-02 11:10:24.729  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Setting offset for partition TweetMessage-0 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[ctsjava754.iiht.tech:9092 (id: 0 rack: null)], epoch=0}}
+2022-08-02 11:10:24.731  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions assigned: [TweetMessage-0]
+2022-08-02 14:10:13.700  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.failed(AsynchronousChannelStream.java:263) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.failed(AsynchronousChannelStream.java:233) ~[mongodb-driver-core-4.1.1.jar:na]
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:129) ~[na:na]
+	at java.base/sun.nio.ch.Invoker$2.run(Invoker.java:219) ~[na:na]
+	at java.base/sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.nio.channels.InterruptedByTimeoutException: null
+	at java.base/sun.nio.ch.WindowsAsynchronousSocketChannelImpl$ReadTask.timeout(WindowsAsynchronousSocketChannelImpl.java:616) ~[na:na]
+	at java.base/sun.nio.ch.WindowsAsynchronousSocketChannelImpl$2.run(WindowsAsynchronousSocketChannelImpl.java:651) ~[na:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	... 3 common frames omitted
+
+2022-08-02 14:10:13.840  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:631) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:516) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:356) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:316) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) ~[mongodb-driver-core-4.1.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method) ~[na:na]
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:648) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:513) ~[mongodb-driver-core-4.1.1.jar:na]
+	... 5 common frames omitted
+
+2022-08-02 14:10:13.892  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:8, serverValue:813}] to localhost:27017
+2022-08-02 14:10:13.893  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=30105300}
+2022-08-02 14:10:13.939  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:812}] to localhost:27017
+2022-08-02 14:10:13.939  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=8546400}
+2022-08-02 14:10:13.953  INFO 16844 --- [kafka-coordinator-heartbeat-thread | tweet_group] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 14:10:13.958  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.clients.FetchSessionHandler    : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Error sending fetch request (sessionId=891131072, epoch=8154) to node 0:
+
+org.apache.kafka.common.errors.DisconnectException: null
+
+2022-08-02 14:10:14.025  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 14:10:14.040  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Attempt to heartbeat with Generation{generationId=7, memberId='consumer-tweet_group-1-1e304d6f-7b89-4b87-a3d8-14e2e7f72caa', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2022-08-02 14:10:14.041  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Giving away all assigned partitions as lost since generation has been reset,indicating that consumer is no longer part of the group
+2022-08-02 14:10:14.042  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Lost previously assigned partitions TweetMessage-0
+2022-08-02 14:10:14.052  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions lost: [TweetMessage-0]
+2022-08-02 14:10:14.053  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions revoked: [TweetMessage-0]
+2022-08-02 14:10:14.055  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 14:10:14.098  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Join group failed with org.apache.kafka.common.errors.MemberIdRequiredException: The group member needs to have a valid member id before actually entering a consumer group.
+2022-08-02 14:10:14.099  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 14:10:14.295  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Finished assignment for group at generation 9: {consumer-tweet_group-1-afdfaf30-82b1-4b55-a812-54f3e4c06500=Assignment(partitions=[TweetMessage-0])}
+2022-08-02 14:10:14.330  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Successfully joined group with generation 9
+2022-08-02 14:10:14.331  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Notifying assignor about the new Assignment(partitions=[TweetMessage-0])
+2022-08-02 14:10:14.332  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Adding newly assigned partitions: TweetMessage-0
+2022-08-02 14:10:14.346  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Setting offset for partition TweetMessage-0 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[ctsjava754.iiht.tech:9092 (id: 0 rack: null)], epoch=0}}
+2022-08-02 14:10:14.348  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions assigned: [TweetMessage-0]
+2022-08-02 12:45:10.857  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:631) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:516) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:356) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:316) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) ~[mongodb-driver-core-4.1.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method) ~[na:na]
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:648) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:513) ~[mongodb-driver-core-4.1.1.jar:na]
+	... 5 common frames omitted
+
+2022-08-02 12:45:10.860  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:9, serverValue:814}] to localhost:27017
+2022-08-02 12:45:10.861  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1541900}
+2022-08-02 12:45:10.907  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.failed(AsynchronousChannelStream.java:263) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.failed(AsynchronousChannelStream.java:233) ~[mongodb-driver-core-4.1.1.jar:na]
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:129) ~[na:na]
+	at java.base/sun.nio.ch.Invoker$2.run(Invoker.java:219) ~[na:na]
+	at java.base/sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.nio.channels.InterruptedByTimeoutException: null
+	at java.base/sun.nio.ch.WindowsAsynchronousSocketChannelImpl$ReadTask.timeout(WindowsAsynchronousSocketChannelImpl.java:616) ~[na:na]
+	at java.base/sun.nio.ch.WindowsAsynchronousSocketChannelImpl$2.run(WindowsAsynchronousSocketChannelImpl.java:651) ~[na:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	... 3 common frames omitted
+
+2022-08-02 12:45:10.911  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:10, serverValue:815}] to localhost:27017
+2022-08-02 12:45:10.911  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1380600}
+2022-08-02 12:53:51.498  INFO 16844 --- [kafka-coordinator-heartbeat-thread | tweet_group] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 12:53:51.501  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 12:53:51.502  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 12:53:51.607  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 13:02:52.051  INFO 16844 --- [kafka-coordinator-heartbeat-thread | tweet_group] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 15:22:54.785  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 15:22:54.875  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Attempt to heartbeat with Generation{generationId=9, memberId='consumer-tweet_group-1-afdfaf30-82b1-4b55-a812-54f3e4c06500', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2022-08-02 15:22:54.877  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Giving away all assigned partitions as lost since generation has been reset,indicating that consumer is no longer part of the group
+2022-08-02 15:22:54.877  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Lost previously assigned partitions TweetMessage-0
+2022-08-02 15:22:54.882  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions lost: [TweetMessage-0]
+2022-08-02 15:22:54.882  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions revoked: [TweetMessage-0]
+2022-08-02 15:22:54.884  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 15:22:54.960  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Join group failed with org.apache.kafka.common.errors.MemberIdRequiredException: The group member needs to have a valid member id before actually entering a consumer group.
+2022-08-02 15:22:54.961  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 15:22:55.035  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Finished assignment for group at generation 11: {consumer-tweet_group-1-60e8b695-0eb5-4899-9d81-dc7b63e53a29=Assignment(partitions=[TweetMessage-0])}
+2022-08-02 15:22:55.137  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Successfully joined group with generation 11
+2022-08-02 15:22:55.138  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Notifying assignor about the new Assignment(partitions=[TweetMessage-0])
+2022-08-02 15:22:55.138  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Adding newly assigned partitions: TweetMessage-0
+2022-08-02 15:22:55.167  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Setting offset for partition TweetMessage-0 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[ctsjava754.iiht.tech:9092 (id: 0 rack: null)], epoch=0}}
+2022-08-02 15:22:55.170  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions assigned: [TweetMessage-0]
+2022-08-02 13:57:58.655  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:631) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:516) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:356) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:316) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:215) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:144) ~[mongodb-driver-core-4.1.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method) ~[na:na]
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168) ~[na:na]
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:109) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:131) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:648) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:513) ~[mongodb-driver-core-4.1.1.jar:na]
+	... 5 common frames omitted
+
+2022-08-02 13:57:58.664  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.failed(AsynchronousChannelStream.java:263) ~[mongodb-driver-core-4.1.1.jar:na]
+	at com.mongodb.internal.connection.AsynchronousChannelStream$BasicCompletionHandler.failed(AsynchronousChannelStream.java:233) ~[mongodb-driver-core-4.1.1.jar:na]
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:129) ~[na:na]
+	at java.base/sun.nio.ch.Invoker$2.run(Invoker.java:219) ~[na:na]
+	at java.base/sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.nio.channels.InterruptedByTimeoutException: null
+	at java.base/sun.nio.ch.WindowsAsynchronousSocketChannelImpl$ReadTask.timeout(WindowsAsynchronousSocketChannelImpl.java:616) ~[na:na]
+	at java.base/sun.nio.ch.WindowsAsynchronousSocketChannelImpl$2.run(WindowsAsynchronousSocketChannelImpl.java:651) ~[na:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	... 3 common frames omitted
+
+2022-08-02 13:57:58.670  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:11, serverValue:818}] to localhost:27017
+2022-08-02 13:57:58.670  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:12, serverValue:819}] to localhost:27017
+2022-08-02 13:57:58.670  INFO 16844 --- [cluster-ClusterId{value='62e7fdcf31c1b3660179a0a8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5996500}
+2022-08-02 13:57:58.670  INFO 16844 --- [cluster-ClusterId{value='62e7fdd031c1b3660179a0a9', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2176301}
+2022-08-02 14:06:37.957  INFO 16844 --- [kafka-coordinator-heartbeat-thread | tweet_group] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 14:06:37.959  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 14:06:37.960  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 14:06:38.067  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 14:15:38.072  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) is unavailable or invalid, will attempt rediscovery
+2022-08-02 15:18:03.011  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 15:23:04.166  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Attempt to heartbeat with Generation{generationId=11, memberId='consumer-tweet_group-1-60e8b695-0eb5-4899-9d81-dc7b63e53a29', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2022-08-02 15:23:04.167  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Giving away all assigned partitions as lost since generation has been reset,indicating that consumer is no longer part of the group
+2022-08-02 15:23:04.167  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Lost previously assigned partitions TweetMessage-0
+2022-08-02 15:23:04.167  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions lost: [TweetMessage-0]
+2022-08-02 15:23:04.167  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions revoked: [TweetMessage-0]
+2022-08-02 15:23:04.168  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 15:23:04.173  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Join group failed with org.apache.kafka.common.errors.MemberIdRequiredException: The group member needs to have a valid member id before actually entering a consumer group.
+2022-08-02 15:23:04.174  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 15:23:04.180  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Finished assignment for group at generation 13: {consumer-tweet_group-1-43f39c7a-feb3-431e-b6d7-d0326fa98482=Assignment(partitions=[TweetMessage-0])}
+2022-08-02 15:23:04.183  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Successfully joined group with generation 13
+2022-08-02 15:23:04.184  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Notifying assignor about the new Assignment(partitions=[TweetMessage-0])
+2022-08-02 15:23:04.184  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Adding newly assigned partitions: TweetMessage-0
+2022-08-02 15:23:04.185  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Setting offset for partition TweetMessage-0 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[ctsjava754.iiht.tech:9092 (id: 0 rack: null)], epoch=0}}
+2022-08-02 15:23:04.187  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions assigned: [TweetMessage-0]
+2022-08-02 15:33:19.009  INFO 16844 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-08-02 15:33:19.180  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Revoke previously assigned partitions TweetMessage-0
+2022-08-02 15:33:19.180  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions revoked: [TweetMessage-0]
+2022-08-02 15:33:19.181  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Member consumer-tweet_group-1-43f39c7a-feb3-431e-b6d7-d0326fa98482 sending LeaveGroup request to coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) due to the consumer unsubscribed from all topics
+2022-08-02 15:33:19.189  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Unsubscribed all topics or patterns and assigned partitions
+2022-08-02 15:33:19.189  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-08-02 15:33:19.275  INFO 16844 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] essageListenerContainer$ListenerConsumer : tweet_group: Consumer stopped
+2022-08-02 15:33:19.310  INFO 16844 --- [RMI TCP Connection(6)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-02 15:33:19.320  INFO 16844 --- [RMI TCP Connection(6)-127.0.0.1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2022-08-02 15:33:19.334  INFO 16844 --- [RMI TCP Connection(6)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:5, serverValue:810}] to localhost:27017 because there was a socket exception raised on another connection from this pool.
+2022-08-02 15:33:19.339  INFO 16844 --- [RMI TCP Connection(6)-127.0.0.1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:13, serverValue:822}] to localhost:27017
+2022-08-02 15:33:19.342  INFO 16844 --- [RMI TCP Connection(6)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:13, serverValue:822}] to localhost:27017 because the pool has been closed.
+2022-08-02 20:58:19.764  INFO 12416 --- [main] com.tweetapp.TweetappApplicationTests    : Starting TweetappApplicationTests using Java 11.0.12 on ctsjava754 with PID 12416 (started by cogjava2018 in C:\Users\cogjava2018\Documents\tweetapp)
+2022-08-02 20:58:19.768  INFO 12416 --- [main] com.tweetapp.TweetappApplicationTests    : No active profile set, falling back to default profiles: default
+2022-08-02 20:58:21.785  INFO 12416 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2022-08-02 20:58:41.084  INFO 16132 --- [main] com.tweetapp.TweetappApplicationTests    : Starting TweetappApplicationTests using Java 11.0.12 on ctsjava754 with PID 16132 (started by cogjava2018 in C:\Users\cogjava2018\Documents\tweetapp)
+2022-08-02 20:58:41.087  INFO 16132 --- [main] com.tweetapp.TweetappApplicationTests    : No active profile set, falling back to default profiles: default
+2022-08-02 20:58:43.341  INFO 16132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2022-08-02 20:58:43.657  INFO 16132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 307 ms. Found 0 Reactive MongoDB repository interfaces.
+2022-08-02 20:58:43.667  INFO 16132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-08-02 20:58:43.718  INFO 16132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 2 MongoDB repository interfaces.
+2022-08-02 20:58:45.331  INFO 16132 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-02 20:58:45.987  INFO 16132 --- [cluster-rtt-ClusterId{value='62e942adf939662ac9c9751b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:823}] to localhost:27017
+2022-08-02 20:58:45.988  INFO 16132 --- [cluster-ClusterId{value='62e942adf939662ac9c9751b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:824}] to localhost:27017
+2022-08-02 20:58:45.991  INFO 16132 --- [cluster-ClusterId{value='62e942adf939662ac9c9751b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=329683300}
+2022-08-02 20:58:47.836  INFO 16132 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-02 20:58:47.971  INFO 16132 --- [cluster-ClusterId{value='62e942aff939662ac9c9751c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:825}] to localhost:27017
+2022-08-02 20:58:47.972  INFO 16132 --- [cluster-rtt-ClusterId{value='62e942aff939662ac9c9751c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:826}] to localhost:27017
+2022-08-02 20:58:47.972  INFO 16132 --- [cluster-ClusterId{value='62e942aff939662ac9c9751c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=125559901}
+2022-08-02 20:58:48.271  INFO 16132 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2022-08-02 20:58:48.603  INFO 16132 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-02 20:58:49.273  INFO 16132 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-02 20:58:50.425  INFO 16132 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-tweet_group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = tweet_group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2022-08-02 20:58:50.726  INFO 16132 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.6.0
+2022-08-02 20:58:50.729  INFO 16132 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 62abe01bee039651
+2022-08-02 20:58:50.729  INFO 16132 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1659454130723
+2022-08-02 20:58:50.788  INFO 16132 --- [main] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Subscribed to topic(s): TweetMessage
+2022-08-02 20:58:50.795  INFO 16132 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-08-02 20:58:50.807  INFO 16132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-02 20:58:50.868  INFO 16132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-02 20:58:50.973  INFO 16132 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-02 20:58:51.275  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2022-08-02 20:58:51.280  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingDELETE_1
+2022-08-02 20:58:51.283  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2022-08-02 20:58:51.285  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_3
+2022-08-02 20:58:51.288  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_4
+2022-08-02 20:58:51.291  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_5
+2022-08-02 20:58:51.294  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_6
+2022-08-02 20:58:51.297  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_7
+2022-08-02 20:58:51.301  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_8
+2022-08-02 20:58:51.304  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_9
+2022-08-02 20:58:51.306  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_10
+2022-08-02 20:58:51.309  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_11
+2022-08-02 20:58:51.315  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_12
+2022-08-02 20:58:51.318  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_13
+2022-08-02 20:58:51.321  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_14
+2022-08-02 20:58:51.323  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_15
+2022-08-02 20:58:51.325  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_16
+2022-08-02 20:58:51.328  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_17
+2022-08-02 20:58:51.331  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_18
+2022-08-02 20:58:51.334  INFO 16132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_19
+2022-08-02 20:58:51.465  INFO 16132 --- [main] com.tweetapp.TweetappApplicationTests    : Started TweetappApplicationTests in 11.021 seconds (JVM running for 15.162)
+2022-08-02 20:58:51.654  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : karishma@09Logged in successfully
+2022-08-02 20:58:51.663  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : karishma@09Logged in successfully
+2022-08-02 20:58:51.667  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : Getting all users
+2022-08-02 20:58:51.671  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : Retriving the user by usernamekarishma@09
+2022-08-02 20:58:51.675  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : Completed
+2022-08-02 20:58:51.688  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : ***Inside CreateUSer***
+2022-08-02 20:58:51.689  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : Registration Successfull
+2022-08-02 20:58:51.693  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : ***Inside CreateUSer***
+2022-08-02 20:58:51.705  INFO 16132 --- [main] com.tweetapp.service.UserServiceImpl     : Reset password successfully
+2022-08-02 20:58:51.743  INFO 16132 --- [main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.tweetapp.TweetAppcontrollerTest], using SpringBootContextLoader
+2022-08-02 20:58:51.747  INFO 16132 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.tweetapp.TweetAppcontrollerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-08-02 20:58:51.748  INFO 16132 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tweetapp.TweetAppcontrollerTest]: TweetAppcontrollerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-08-02 20:58:51.774  INFO 16132 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tweetapp.TweetappApplication for test class com.tweetapp.TweetAppcontrollerTest
+2022-08-02 20:58:51.775  INFO 16132 --- [main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-08-02 20:58:51.776  INFO 16132 --- [main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6a38e577, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@272cee7e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@771569ae, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@245d1f78, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@96345d9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@497c1595, org.springframework.test.context.transaction.TransactionalTestExecutionListener@15f84d0d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@59123615, org.springframework.test.context.event.EventPublishingTestExecutionListener@4accfd63, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@63358912, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3472205c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7c181a59, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5192c75c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1ea0a965, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3b751a2d]
+2022-08-02 20:58:51.823  INFO 16132 --- [main] com.tweetapp.TweetAppcontrollerTest      : Starting TweetAppcontrollerTest using Java 11.0.12 on ctsjava754 with PID 16132 (started by cogjava2018 in C:\Users\cogjava2018\Documents\tweetapp)
+2022-08-02 20:58:51.825  INFO 16132 --- [main] com.tweetapp.TweetAppcontrollerTest      : No active profile set, falling back to default profiles: default
+2022-08-02 20:58:51.841  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Cluster ID: JbenWXKGTCCktVjJPyMbqw
+2022-08-02 20:58:51.843  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Discovered group coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null)
+2022-08-02 20:58:51.850  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 20:58:51.912  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Join group failed with org.apache.kafka.common.errors.MemberIdRequiredException: The group member needs to have a valid member id before actually entering a consumer group.
+2022-08-02 20:58:51.912  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] (Re-)joining group
+2022-08-02 20:58:51.945  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Finished assignment for group at generation 15: {consumer-tweet_group-1-7a1955c2-1000-470d-9a7c-8529da4e25e5=Assignment(partitions=[TweetMessage-0])}
+2022-08-02 20:58:51.978  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Successfully joined group with generation 15
+2022-08-02 20:58:51.979  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Notifying assignor about the new Assignment(partitions=[TweetMessage-0])
+2022-08-02 20:58:51.989  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Adding newly assigned partitions: TweetMessage-0
+2022-08-02 20:58:52.011  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Setting offset for partition TweetMessage-0 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[ctsjava754.iiht.tech:9092 (id: 0 rack: null)], epoch=0}}
+2022-08-02 20:58:52.016  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions assigned: [TweetMessage-0]
+2022-08-02 20:58:52.834  INFO 16132 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-02 20:58:52.971  INFO 16132 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-02 20:58:53.198  INFO 16132 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-08-02 20:58:53.198  INFO 16132 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-08-02 20:58:53.200  INFO 16132 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-08-02 20:58:53.229  INFO 16132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-02 20:58:53.231  INFO 16132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-02 20:58:53.239  INFO 16132 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-02 20:58:53.330  INFO 16132 --- [main] com.tweetapp.TweetAppcontrollerTest      : Started TweetAppcontrollerTest in 1.549 seconds (JVM running for 17.027)
+2022-08-02 20:58:53.417  INFO 16132 --- [main] c.t.controller.TweetAppController        : Like a tweet
+2022-08-02 20:58:53.451  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting user by username
+2022-08-02 20:58:53.467  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting all users
+2022-08-02 20:58:53.548  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting tweets by username
+2022-08-02 20:58:53.589  INFO 16132 --- [main] c.t.controller.TweetAppController        : Forgot password request received with username: karishma@09
+2022-08-02 20:58:53.753  INFO 16132 --- [main] c.t.controller.TweetAppController        : Deleted tweet successfully
+2022-08-02 20:58:53.771  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting tweets by username
+2022-08-02 20:58:53.784  INFO 16132 --- [main] c.t.controller.TweetAppController        : Get all tweets
+2022-08-02 20:58:53.826  INFO 16132 --- [main] c.t.controller.TweetAppController        : Replying to the tweet
+2022-08-02 20:58:53.839  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting tweets by username
+2022-08-02 20:58:53.865  INFO 16132 --- [main] c.t.controller.TweetAppController        : Like a tweet
+2022-08-02 20:58:53.882  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting tweets by username
+2022-08-02 20:58:53.908  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting user by username
+2022-08-02 20:58:53.920  INFO 16132 --- [main] c.t.controller.TweetAppController        : Getting tweets by username
+2022-08-02 20:58:53.934  INFO 16132 --- [main] c.t.controller.TweetAppController        : User created successfully
+2022-08-02 20:58:53.948  INFO 16132 --- [main] c.t.controller.TweetAppController        : User created successfully
+2022-08-02 20:58:54.503  INFO 16132 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-02 20:58:54.508  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Revoke previously assigned partitions TweetMessage-0
+2022-08-02 20:58:54.509  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : tweet_group: partitions revoked: [TweetMessage-0]
+2022-08-02 20:58:54.510  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Member consumer-tweet_group-1-7a1955c2-1000-470d-9a7c-8529da4e25e5 sending LeaveGroup request to coordinator ctsjava754.iiht.tech:9092 (id: 2147483647 rack: null) due to the consumer unsubscribed from all topics
+2022-08-02 20:58:54.512  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-tweet_group-1, groupId=tweet_group] Unsubscribed all topics or patterns and assigned partitions
+2022-08-02 20:58:54.512  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-08-02 20:58:54.545  INFO 16132 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] essageListenerContainer$ListenerConsumer : tweet_group: Consumer stopped
+2022-08-02 20:58:54.552  INFO 16132 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
